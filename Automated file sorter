@@ -1,0 +1,24 @@
+import os, shutil
+
+path = r"C:/Users/conng/OneDrive/Desktop/Python Tutorials/"
+
+file_name = os.listdir(path)
+
+folder_names = ['imagefiles', 'xlsxfiles', 'docxfiles']
+
+for loop in range(0,3):
+    if not os.path.exists(path + folder_names[loop]):
+        os.makedirs((path + folder_names[loop]))
+
+for file in file_name:
+    if ".xlsx" in file and not os.path.exists(path + "xlsxfiles/" + file):
+        shutil.move(path + file, path + "xlsxfiles/" + file)
+ 
+    elif ".png" in file and not os.path.exists(path + "imagefiles/" + file):
+        shutil.move(path + file, path + "imagefiles/" + file)
+        
+    elif ".JPG" in file and not os.path.exists(path + "imagefiles/" + file):
+        shutil.move(path + file, path + "imagefiles/" + file)
+
+    elif ".docx" in file and not os.path.exists(path + "docxfiles/" + file):
+        shutil.move(path + file, path + "docxfiles/" + file)    
